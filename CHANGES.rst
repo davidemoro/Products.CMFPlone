@@ -19,6 +19,8 @@ New:
 - Include pat-moment for public javascript
   [vangheem]
 
+- Supported ``remove`` keyword for configlets in controlpanel.xml.  [maurits]
+
 - Add custom navigation root in TinyMCE configuration.
   [alecm]
 
