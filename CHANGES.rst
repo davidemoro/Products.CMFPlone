@@ -48,6 +48,28 @@ New:
 
 Fixes:
 
+- Do not attempt to wrap types-controlpanel based on AutoExtensibleForm and
+  EditForm in Acquisition using __of__ since
+  Products.Five.browser.metaconfigure.simple no longer has
+  Products.Five.bbb.AcquisitionBBB as a parent-class and thus no __of__.
+  Anyway __of__ in AcquisitionBBB always only returned self since
+  Products.Five.browser.metaconfigure.xxx-classes are always aq-wrapped
+  using location and __parent__. As a alternative you could use
+  plone.app.registry.browser.controlpanel.ControlPanelFormWrapper as
+  base-class for a controlpanel since ControlPanelFormWrapper subclasses
+  Products.Five.BrowserView which again has AcquisitionBBB.
+  [pbauer]
+
+- Fix csrf-test where @@authenticator was called in the browser.
+  [pbauer]
+
+- Fallback for missing date in DefaultDublinCoreImpl no longer relies on
+  bobobase_modification_time.
+  [pbauer]
+
+- Changes for Zope 4 compatibility in maintenance controlpanel.
+  [thet]
+
 - Do not break background images relative urls in CSS when concatening bundles
   [ebrehault]
 
@@ -90,56 +112,13 @@ New:
 
 - Add custom navigation root in TinyMCE configuration.
   [alecm]
-- *add item here*
-- Add barceloneta theme path in less configuration.
-  [Gagaro]
-
-Fixes:
-
-- Do not attempt to wrap types-controlpanel based on AutoExtensibleForm and
-  EditForm in Acquisition using __of__ since
-  Products.Five.browser.metaconfigure.simple no longer has
-  Products.Five.bbb.AcquisitionBBB as a parent-class and thus no __of__.
-  Anyway __of__ in AcquisitionBBB always only returned self since
-  Products.Five.browser.metaconfigure.xxx-classes are always aq-wrapped
-  using location and __parent__. As a alternative you could use
-  plone.app.registry.browser.controlpanel.ControlPanelFormWrapper as
-  base-class for a controlpanel since ControlPanelFormWrapper subclasses
-  Products.Five.BrowserView which again has AcquisitionBBB.
-  [pbauer]
-
-- Fix csrf-test where @@authenticator was called in the browser.
-  [pbauer]
-
-- Fallback for missing date in DefaultDublinCoreImpl no longer relies on
-  bobobase_modification_time.
-  [pbauer]
-
-- Changes for Zope 4 compatibility in maintenance controlpanel.
-  [thet]
-
-- Fix some i18n issues.
-  [vincentfretin]
-
-- *add item here*
-
-Fixes:
-
-- Fallback for missing date in DefaultDublinCoreImpl no longer relies on
-  bobobase_modification_time.
-  [pbauer]
-
-- Changes for Zope 4 compatibility in maintenance controlpanel.
-  [thet]
-
-- Fix some i18n issues.
-  [vincentfretin]
 
 - Add barceloneta theme path in less configuration.
   [Gagaro]
 
 - Merge JS and CSS bundles into meta-bundles to reduce the number of requests
   when loading a page (PLIP #1277)
+  [ebrehault]
 
 Fixes:
 
