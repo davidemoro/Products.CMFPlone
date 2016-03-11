@@ -38,7 +38,9 @@ New:
 
 Fixes:
 
-- *add item here*
+- Fixes #1113 can't add content after adding Plone 5 site without Example 
+  content.
+  [jensens]
 
 
 5.0.3 (2016-03-??)
