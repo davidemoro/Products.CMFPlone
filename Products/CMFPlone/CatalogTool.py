@@ -312,8 +312,10 @@ class CatalogTool(PloneBaseTool, BaseTool):
         """Makes sure the list includes the user's groups.
         """
         result = user.getRoles()
-        if 'Anonymous' in result:
+        if 'Anonymous' in result and len(result) == 1:
             # The anonymous user has no further roles
+            # except for third party plugins that might
+            # contain a list of roles with Anonymous
             return ['Anonymous']
         result = list(result)
         if hasattr(aq_base(user), 'getGroups'):
