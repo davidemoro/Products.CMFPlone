@@ -65,6 +65,9 @@ Fixes:
 
 - Fixed html validation: section lacks heading.
   [maurits]
+  
+- Fixed catalog query with ``Plone Active Directory``. See #1474
+  [davidemoro]
 
 
 
